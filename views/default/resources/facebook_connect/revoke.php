@@ -5,7 +5,6 @@ $user = elgg_get_logged_in_user_entity();
 elgg_unset_plugin_user_setting('fbid', $user->guid, 'facebook_connect');
 elgg_unset_plugin_user_setting('fbaccess_token', $user->guid, 'facebook_connect');
 elgg_unset_plugin_user_setting('fbname', $user->guid, 'facebook_connect');
-elgg_unset_plugin_user_setting('fblink', $user->guid, 'facebook_connect');
 
 system_message(elgg_echo('facebook_connect:revoke:success'));
 
