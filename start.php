@@ -52,8 +52,14 @@ function send_user_password_mail($email, $name, $username, $password) {
 	} else {
 		$from = 'noreply@' . getDomain();
 	}
-
-	elgg_send_email($from, $email, $subject, $message);
+	
+	$email = \Elgg\Email::factory([
+			'to' => $email,
+			'from' => $from,
+			'subject' => $subject,
+			'body' => $message,
+		]);
+		elgg_send_email($email);
 }
 
 /**
