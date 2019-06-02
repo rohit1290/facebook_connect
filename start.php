@@ -6,8 +6,6 @@ return function() {
 
 function facebook_connect_init() {
 	
-	require_once __DIR__ . "/vendor/autoload.php";
-	
 	// sign on with facebook
 	if (facebook_connect_allow_sign_on_with_facebook()) {
 		elgg_extend_view('core/account/login_box', 'facebook_connect/login_btn');
@@ -55,7 +53,13 @@ function send_user_password_mail($email, $name, $username, $password) {
 		$from = 'noreply@' . getDomain();
 	}
 
-	elgg_send_email($from, $email, $subject, $message);
+	$email = \Elgg\Email::factory([
+			'to' => $email,
+			'from' => $from,
+			'subject' => $subject,
+			'body' => $message,
+		]);
+	elgg_send_email($email);
 }
 
 /**
@@ -66,10 +70,10 @@ function send_user_password_mail($email, $name, $username, $password) {
  * @return void
  */
 function facebook_connect_allow_sign_on_with_facebook() {
-	if (!$consumer_key = elgg_get_plugin_setting('consumer_key', 'facebook_connect')) {
+	if (!$app_id = elgg_get_plugin_setting('app_id', 'facebook_connect')) {
 		return false;
 	}
-	if (!$consumer_secret = elgg_get_plugin_setting('consumer_secret', 'facebook_connect')) {
+	if (!$app_secret = elgg_get_plugin_setting('app_secret', 'facebook_connect')) {
 		return false;
 	}
 	return elgg_get_plugin_setting('sign_on', 'facebook_connect') == 'yes';
