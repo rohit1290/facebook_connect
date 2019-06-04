@@ -78,6 +78,9 @@ $getUsers = get_user_by_email($email);
     // A. if exists then retrieved the user
     $user = get_user($getUsers[0]->guid);
     $user->name = $fbname;
+    $user->validated = 1;
+    $user->validated_method = 'facebook';
+    $user->language = get_language();
     $user->save();
   } else {
     // check new registration allowed
