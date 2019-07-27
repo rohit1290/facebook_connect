@@ -1,6 +1,11 @@
 <?php
 
 return [
+	'views' => [
+		'default' => [
+			'facebook_connect/' => __DIR__ . '/graphics',
+		],
+	],
 	'routes' => [
 		'collection:object:facebook_connect:login' => [
 			'path' => '/facebook_connect/login',
