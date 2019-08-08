@@ -31,7 +31,7 @@ function send_user_password_mail($email, $name, $username, $password) {
 		return false;
 	}
 
-	$message = elgg_echo('facebook_connect:email:body', array(
+	$message = elgg_echo('facebook_connect:email:body', [
 					$name,
 					$site->name,
 					$site->url,
@@ -40,10 +40,10 @@ function send_user_password_mail($email, $name, $username, $password) {
 					$password,
 					$site->name,
 					$site->url
-				)
+				]
 	);
 
-	$subject = elgg_echo('facebook_connect:email:subject', array($name));
+	$subject = elgg_echo('facebook_connect:email:subject', [$name]);
 
 	// create the from address
 	$site = get_entity($site->guid);
