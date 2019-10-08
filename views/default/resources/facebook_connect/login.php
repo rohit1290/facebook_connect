@@ -92,9 +92,14 @@ if ((int) $getUsers[0]->guid > 0) {
 	$u = explode("@", $email);
 	$username = $u[0];
 	$usernameTmp = $username;
-	while (get_user_by_username($username)) {
-		$username = $usernameTmp . '_' . rand(1000, 9999);
-	}
+
+	$username = elgg_call(ELGG_SHOW_DISABLED_ENTITIES, function() use ($username) {
+		while (get_user_by_username($username)) {
+			$username = $usernameTmp . '_' . rand(1000, 9999);
+		}
+		return $username;
+	});
+
 	$password = generate_random_cleartext_password();
 	$uguid = register_user($username, $password, $fbname, $email);
 	if ($uguid === false) {
