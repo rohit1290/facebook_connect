@@ -80,7 +80,7 @@ if ((int) $getUsers[0]->guid > 0) {
 	$user->name = $fbname;
 	$user->validated = 1;
 	$user->validated_method = 'facebook';
-	$user->language = get_language();
+	$user->language = get_current_language();
 	$user->save();
 } else {
 	// check new registration allowed
