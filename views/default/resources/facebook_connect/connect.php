@@ -9,4 +9,3 @@ $_SESSION['fb_connect_state'] = $state;
 $url = "https://www.facebook.com/$app_version/dialog/oauth?client_id=$app_id&redirect_uri=$redirect_uri&state=$state&scope=email";
 // echo $url;
 forward($url);
-?>

@@ -48,4 +48,3 @@ You can login using either email id or username.
 %s'
 	
 );
-?>

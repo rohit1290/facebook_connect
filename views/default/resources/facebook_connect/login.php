@@ -124,14 +124,14 @@ if ((int) $getUsers[0]->guid > 0) {
   // also update the profile image of the user
   $url = "https://graph.facebook.com/$app_version/me/picture?type=large&redirect=false&access_token=$access_token";
   $picture_json = file_get_contents($url);
-  
+
 if ((int) $user->icontime < (time() - 31536000)) {
 	// Dont change icon if updated within last 1 year
 	if ($picture_json !== false) {
 			  $picture_json = json_decode($picture_json, true);
 		$fb_pic_url = $picture_json['data']['url'];
 		$picture = file_get_contents($fb_pic_url);
-	
+
 			  $sizes = [
 		  'topbar' => [16, 16, true],
 		  'tiny' => [25, 25, true],
@@ -148,12 +148,12 @@ if ((int) $user->icontime < (time() - 31536000)) {
 				  $filehandler->write($picture);
 				  $filehandler->close();
 		}
-	
+
 				$user->icontime = time();
 				$user->save();
 	}
 }
-  
+
   forward(elgg_get_site_url());
-  
-	?>
+
+	
