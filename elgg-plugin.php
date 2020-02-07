@@ -1,6 +1,8 @@
 <?php
+require_once __DIR__ . "/lib/functions.php";
 
 return [
+	'bootstrap' => FacebookConnect::class,
 	'views' => [
 		'default' => [
 			'facebook_connect/' => __DIR__ . '/graphics',

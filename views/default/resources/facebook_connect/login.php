@@ -15,7 +15,11 @@ if (elgg_is_logged_in()) {
 // code=AQBeyThi2quwJrFZNJjmozb0w7ReH7JSy3ASbVfrUdfiHIaeHdfMrwZ67yxRFHGpuojQwnTShL0ChlxDiLmcvyMIeh6T2s81yQQl3gwaQH__k1aS_TFubwFys0WUOSv_49euREagLRYHVkm6e4dWFlk8c8jshzs29ks60skO44oP9GZ_xpEEVGqnxEBywh9bY6YwdtE6lt6ZmXgfQLw6mGbA1AIybGyb_7kD0XvqLTbWa5MLHI0HHzqlFFZJcPDTB3d4FuqHmMNqx477-wOYCFowCfNHHeq7wIPEnvpeSUupAxIXIGszwIlNi91p-FngyHP32zZ4M2IpaeZWS_z7S8a2
 // &state=a9b7ba70783b617e9998dc4dd82eb3c5#_=_
 
-$code = get_input('code');
+$code = get_input('code', null);
+if($code == null) {
+	register_error("Authorization not found");
+	forward();
+}
 $state = get_input('state');
 $error_reason = get_input('error_reason', null);  // user_denied
 $error = get_input('error', null);  // access_denied
@@ -154,6 +158,4 @@ if ((int) $user->icontime < (time() - 31536000)) {
 	}
 }
 
-  forward(elgg_get_site_url());
-
-	
+forward(elgg_get_site_url());
