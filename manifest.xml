@@ -3,7 +3,7 @@
 	<name>Facebook Connect</name>
 	<id>facebook_connect</id>
 	<author>Rohit Gupta</author>
-	<version>3.1.1</version>
+	<version>3.2.0</version>
 	<description>Provide Facebook Login Feature in Elgg</description>
 	<license>GNU General Public License version 2</license>
 	<requires>
