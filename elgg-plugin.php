@@ -2,6 +2,11 @@
 require_once __DIR__ . "/lib/functions.php";
 
 return [
+	'plugin' => [
+		'name' => 'Facebook Connect',
+		'version' => '4.0',
+		'dependencies' => [],
+	],
 	'bootstrap' => FacebookConnect::class,
 	'views' => [
 		'default' => [

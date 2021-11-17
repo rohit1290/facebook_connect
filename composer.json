@@ -1,0 +1,18 @@
+{
+	"name": "facebook_connect",
+	"description": "Provide Facebook Login Feature in Elgg",
+	"homepage": "http://www.campuskarma.in/",
+	"type": "elgg-plugin",
+	"keywords": ["elgg", "plugin"],
+	"license": "Private Use",
+	"support": {
+		"source": "https://github.com/rohit1290/facebook_connect",
+		"issues": "https://github.com/rohit1290/facebook_connect/issues"
+	},
+	"require": {
+		"composer/installers": "^1.0.8"
+	},
+	"conflict": {
+		"elgg/elgg": "<4.0"
+	}
+}

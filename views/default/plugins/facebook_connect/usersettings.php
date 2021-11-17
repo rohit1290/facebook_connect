@@ -1,10 +1,10 @@
 <?php
 $site_name = elgg_get_site_entity()->name;
-$user_id = elgg_get_logged_in_user_guid();
+$user = elgg_get_logged_in_user_entity();
 
-$facebook_id = elgg_get_plugin_user_setting('fbid', $user_id, 'facebook_connect');
-$facebook_name = elgg_get_plugin_user_setting('fbname', $user_id, 'facebook_connect');
-$access_token = elgg_get_plugin_user_setting('fbaccess_token', $user_id, 'facebook_connect');
+$facebook_id = $user->getPluginSetting('facebook_connect', 'fbid');
+$facebook_name = $user->getPluginSetting('facebook_connect', 'fbname');
+$access_token = $user->getPluginSetting('facebook_connect', 'fbaccess_token');
 
 echo '<div>' . elgg_echo('facebook_connect:usersettings:description', [$site_name]) . '</div>';
 
